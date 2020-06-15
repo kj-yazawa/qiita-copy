@@ -1,0 +1,2 @@
+# qiita-copy
+Qiitaコピーアプリ用
