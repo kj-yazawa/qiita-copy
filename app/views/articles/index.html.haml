@@ -1,0 +1,14 @@
+%table
+  %thead
+    %tr
+      %th タイトル
+      %th 内容
+      %th 作成日時
+      %th 更新日時
+  %tbody
+    - @articles.each do |article|
+      %tr
+        %td= article.title
+        %td= article.body
+        %td= article.created_at
+        %td= article.updated_at
