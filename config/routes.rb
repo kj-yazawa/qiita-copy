@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'articles#index'
 
   resources :articles, only: :index
-  resources :users, only: %i() do
-    resources :articles, only: %i(new edit create update destroy), module: :user
+  resource :user, only: %i() do
+    resources :articles, only: %i(new edit create update destroy)
   end
 end
