@@ -14,6 +14,7 @@
         %td= article.updated_at
 
 - if current_user
+  = link_to 'NEW ATRICLE', new_user_article_path
   = link_to 'LOGOUT', destroy_user_session_path, method: :delete
 - else
   = link_to 'LOGIN', new_user_session_path
