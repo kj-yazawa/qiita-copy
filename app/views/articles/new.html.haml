@@ -1,12 +1,2 @@
-= simple_form_for(@article, mehtod: :post, url: user_articles_path) do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-
-  .form-inputs
-    .row
-      = f.input :title
-    .row
-      = f.input :body
-
-  .form-actions
-    = f.button :submit
+%h1 記事作成画面
+= render 'form'
