@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
-  before_action :set_article, only: %i(edit update destroy)
+  skip_before_action :authenticate_user!, only: %i(index, show)
+  before_action :set_article, only: %i(show edit update destroy)
 
   def index
     @articles = Article.all.order(:created_at)
@@ -8,6 +8,9 @@ class ArticlesController < ApplicationController
 
   def new
     @article = current_user.articles.build
+  end
+
+  def show
   end
 
   def edit
@@ -38,7 +41,7 @@ class ArticlesController < ApplicationController
   private
 
   def set_article
-    @article = current_user.articles.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def article_params
