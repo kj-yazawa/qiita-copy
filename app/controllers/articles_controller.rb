@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!
-  before_action :set_article, only: %i(edit update)
+  before_action :set_article, only: %i(edit update destroy)
 
   def index
     @articles = Article.all.order(:created_at)
@@ -31,6 +31,8 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    @article.destroy!
+    redirect_to articles_url
   end
 
   private
