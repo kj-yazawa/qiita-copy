@@ -23,6 +23,11 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    if @article.update(article_params)
+      redirect_to articles_url
+    else
+      render :new
+    end
   end
 
   def destroy

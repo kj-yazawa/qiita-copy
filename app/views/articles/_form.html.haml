@@ -1,4 +1,4 @@
-= simple_form_for(@article, mehtod: :post, url: user_articles_path) do |f|
+= simple_form_for([:user, @article]) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
@@ -10,4 +10,3 @@
 
   .form-actions
     = f.button :submit
-

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'articles#index'
 
-  resources :articles, only: %i(index edit update)
+  resources :articles, only: %i(index)
   resource :user, only: %i() do
     resources :articles, only: %i(new edit create update destroy)
   end
