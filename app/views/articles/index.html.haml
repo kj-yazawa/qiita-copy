@@ -5,6 +5,7 @@
       %th 内容
       %th 作成日時
       %th 更新日時
+      %th
   %tbody
     - @articles.each do |article|
       %tr
@@ -12,6 +13,7 @@
         %td= article.body
         %td= article.created_at
         %td= article.updated_at
+        %td= link_to 'EDIT', edit_article_path(article)
 
 - if current_user
   = link_to 'NEW ATRICLE', new_user_article_path
