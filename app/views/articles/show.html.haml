@@ -2,8 +2,10 @@
 
 %p
   %b Show:
-  = @article.title
-  = @article.body
+  %p
+    = @article.title
+  %p
+    = markdown(@article.body)
 
 - if current_user && @article.written_by?(current_user)
   = link_to 'Edit', edit_user_article_path(@article)
