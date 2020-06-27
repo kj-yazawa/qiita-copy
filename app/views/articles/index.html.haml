@@ -1,0 +1,27 @@
+%table
+  %thead
+    %tr
+      %th タイトル
+      %th 内容
+      %th 作成日時
+      %th 更新日時
+      %th
+      %th
+      %th
+  %tbody
+    - @articles.each do |article|
+      %tr
+        %td= article.title
+        %td= article.body
+        %td= article.created_at
+        %td= article.updated_at
+        %td= link_to 'SHOW', article_path(article)
+        - if current_user && article.written_by?(current_user)
+          %td= link_to 'EDIT', edit_user_article_path(article)
+          %td= link_to 'DELETE', user_article_path(article), method: :delete, data: { confirm: 'OK?' }
+
+- if current_user
+  = link_to 'NEW ATRICLE', new_user_article_path
+  = link_to 'LOGOUT', destroy_user_session_path, method: :delete
+- else
+  = link_to 'LOGIN', new_user_session_path
